@@ -11,4 +11,10 @@ public class HumanTester {
 		assertEquals("Ryan Byrne", tester.getName());
 	}
 	
+	@Test
+	public void testGetName2()
+	{
+		assertEquals("Ryan Byrne", tester.getName());
+	}
+	
 }
