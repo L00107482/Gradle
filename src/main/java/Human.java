@@ -29,7 +29,8 @@ public class Human {
 
 	public void setName(String name)
 	{
-		if (validateFirstName(name) == true) {
+		if (validateFirstName(name) == true) 
+		{
 			this.name = name;
 		} else
 			throw new IllegalArgumentException("First name can only be alphabetic", null);
@@ -43,7 +44,8 @@ public class Human {
 
 	public void setAge(int age)
 	{
-		if (age < 0 || age >= 125) {
+		if (age < 0 || age >= 125) 
+		{
 			throw new IllegalArgumentException("Age should be realistic");
 		} else {
 			this.age = age;
@@ -57,7 +59,8 @@ public class Human {
 
 	public void setHeight(int height)
 	{
-		if (height < 0 || age >= 210) {
+		if (height < 0 || age >= 210) 
+		{
 			throw new IllegalArgumentException("Height should be realistic");
 		} else {
 			this.height = height;
@@ -71,7 +74,8 @@ public class Human {
 
 	public void setWeight(int weight)
 	{
-		if (weight < 0 || weight >= 280) {
+		if (weight < 0 || weight >= 280) 
+		{
 			throw new IllegalArgumentException("Weight should be realistic");
 		} else {
 			this.weight = weight;

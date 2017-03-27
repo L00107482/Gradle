@@ -18,7 +18,8 @@ public class HumanTester {
 	}
 
 	@Test
-	public void testHypenatedFirstName() {
+	public void testHypenatedName() 
+	{
 		tester.setName("Ryan-John");
 		assertEquals("Ryan-John", tester.getName());
 	}
@@ -40,12 +41,14 @@ public class HumanTester {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetAgeWithNegativeNumberByThrownException() {
+	public void testSetAgeWithNegativeNumberByThrownException() 
+	{
 		tester.setAge(-1);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testSetAgeTooBigByThrownException() {
+	public void testSetAgeTooBigByThrownException()
+	{
 		tester.setAge(126);
 	}
 
