@@ -1,62 +1,84 @@
 public class Human {
-	private String name;
-	private int age;
-	private String address;
-	private double height;
-	private double weight;
+	private String name;		//Full name
+	private int age;			//Age in Years
+	private int height; 		//Height in Centimeters
+	private int weight; 		//Weight in Pounds
+
 	public Human()
 	{
 		name=null;
 		age=0;
-		address=null;
 		height=0;
 		weight=0;
 	}
-	public Human(String nameIn,int ageIn,String addressIn,double heightIn,double weightIn)
+
+	public Human(String name,int age,int height,int weight)
 	{
-		name=nameIn;
-		age=ageIn;
-		address=addressIn;
-		height=heightIn;
-		weight=weightIn;
+		this.name=name;
+		this.age=age;
+		this.height=height;
+		this.weight=weight;
 	}
-	public void setName(String nameIn)
+
+	// validate first name
+	public static boolean validateFirstName(String name) 
 	{
-		name=nameIn;
+		return name.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
 	}
+
+
+	public void setName(String name)
+	{
+		if (validateFirstName(name) == true) {
+			this.name = name;
+		} else
+			throw new IllegalArgumentException("First name can only be alphabetic", null);
+	}
+
+
 	public String getName()
 	{
 		return name;
 	}
-	public void setAge(int ageIn)
+
+	public void setAge(int age)
 	{
-		age=ageIn;
+		if (age < 0 || age >= 125) {
+			throw new IllegalArgumentException("Age should be realistic");
+		} else {
+			this.age = age;
+		}
 	}
+
 	public int getAge()
 	{
 		return age;
 	}
-	public void setAddress(String addressIn)
+
+	public void setHeight(int height)
 	{
-		address=addressIn;
+		if (height < 0 || age >= 210) {
+			throw new IllegalArgumentException("Height should be realistic");
+		} else {
+			this.height = height;
+		}
 	}
-	public String getAddress()
-	{
-		return address;
-	}
-	public void setHeight(double heightIn)
-	{
-		height=heightIn;
-	}
-	public double getHeight()
+
+	public int getHeight()
 	{
 		return height;
 	}
-	public void setWeight(double weightIn)
+
+	public void setWeight(int weight)
 	{
-		weight=weightIn;
+		if (weight < 0 || weight >= 280) {
+			throw new IllegalArgumentException("Weight should be realistic");
+		} else {
+			this.weight = weight;
+		}
 	}
-	public double getWeight()
+
+	public int getWeight()
 	{
 		return weight;
 	}
