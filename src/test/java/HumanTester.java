@@ -21,8 +21,22 @@ public class HumanTester
 	@Test
 	public void testHypenatedFirstName() 
 	{
-		tester.setFirstName("Ryan-John");
-		assertEquals("Ryan-John", tester.getFirstName());
+		tester.setFirstName("Jean-Claude");
+		assertEquals("Jean-Claude", tester.getFirstName());
+	}
+	
+	@Test
+	public void testDoubleWordFirstName()
+	{
+		tester.setFirstName("Jean Claude");
+		assertEquals("Jean Claude", tester.getFirstName());
+	}
+	
+	@Test
+	public void testFadaFirstName()
+	{
+		tester.setFirstName("Ryán");
+		assertEquals("Ryán", tester.getFirstName());
 	}
 	
 	@Test
@@ -44,6 +58,26 @@ public class HumanTester
 		assertEquals("Jones-Byrne", tester.getSurname());
 	}
 	
+	@Test
+	public void testApostrohiesSurname()
+	{
+		tester.setSurname("O'Boyle");
+		assertEquals("O'Boyle", tester.getSurname());
+	}
+	
+	@Test
+	public void testDoubleWordSurname()
+	{
+		tester.setSurname("Van Damme");
+		assertEquals("Van Damme", tester.getSurname());
+	}
+	
+	@Test
+	public void testFadaSurname()
+	{
+		tester.setSurname("Byrné");
+		assertEquals("Byrné", tester.getSurname());
+	}
 
 	@Test
 	public void testGetAge()

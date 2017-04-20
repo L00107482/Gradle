@@ -27,7 +27,7 @@ public class Human
 	// validate first name
 	public static boolean validateFirstName(String firstName) 
 	{
-		return firstName.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+		return firstName.matches("[a-zA-zαινσϊ]+([ '-][a-zA-Z]+)*");
 	}
 
 
@@ -47,7 +47,7 @@ public class Human
 	
 	public static boolean validateSurname(String surname) 
 	{
-		return surname.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+		return surname.matches("[a-zA-zαινσϊ]+([ '-][a-zA-Z]+)*");
 	}
 
 	public void setSurname(String surname)
