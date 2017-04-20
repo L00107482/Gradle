@@ -1,42 +1,67 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-public class HumanTester {
+public class HumanTester 
+{
 
-	private Human tester = new Human("Ryan Byrne",21,170,120);
+	private Human tester = new Human("Ryan", "Byrne",21,170,120);
 
 	@Test
-	public void testGetName()
+	public void testGetFirstName()
 	{
-		assertEquals("Ryan Byrne", tester.getName());
+		assertEquals("Ryan", tester.getFirstName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testNameWithNumber() 
+	public void testFirstNameWithNumber() 
 	{
-		tester.setName("Ry4n");
+		tester.setFirstName("Ry4n");
 	}
 
 	@Test
-	public void testHypenatedName() 
+	public void testHypenatedFirstName() 
 	{
-		tester.setName("Ryan-John");
-		assertEquals("Ryan-John", tester.getName());
+		tester.setFirstName("Ryan-John");
+		assertEquals("Ryan-John", tester.getFirstName());
 	}
+	
+	@Test
+	public void testGetSurname()
+	{
+		assertEquals("Byrne", tester.getSurname());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testSurnameWithNumber() 
+	{
+		tester.setSurname("Byrn3");
+	}
+
+	@Test
+	public void testHypenatedSurname() 
+	{
+		tester.setSurname("Jones-Byrne");
+		assertEquals("Jones-Byrne", tester.getSurname());
+	}
+	
 
 	@Test
 	public void testGetAge()
 	{
 		assertEquals(21, tester.getAge());
 	}
-
+	
+	@Test
 	public void testGetAgeVeryOld()
 	{
-		assertEquals(129, tester.getAge());
+		tester.setAge(124);
+		assertEquals(124, tester.getAge());
 	}
 
+	@Test
 	public void testGetAgeJustBorn()
 	{
+		tester.setAge(0);
 		assertEquals(0, tester.getAge());
 	}
 
@@ -57,11 +82,63 @@ public class HumanTester {
 	{
 		assertEquals(170, tester.getHeight());
 	}
+	
+	@Test
+	public void testGetHeightVerySmall()
+	{
+		tester.setHeight(130);
+		assertEquals(130, tester.getHeight());
+	}
+	
+	@Test
+	public void testGetHeightVeryBig()
+	{
+		tester.setHeight(195);
+		assertEquals(195, tester.getHeight());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetHeightWithNegativeNumberByThrownException() 
+	{
+		tester.setAge(-1);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetHeightTooBigByThrownException()
+	{
+		tester.setAge(250);
+	}
 
 	@Test
 	public void testGetWeight()
 	{
 		assertEquals(120, tester.getWeight());
+	}
+	
+	@Test
+	public void testGetWeightVeryLight()
+	{
+		tester.setWeight(50);
+		assertEquals(50, tester.getWeight());
+	}
+	
+	@Test
+	public void testGetWeightVeryHeavy()
+	{
+		tester.setWeight(200);
+		assertEquals(200, tester.getWeight());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetWeightWithNegativeNumberByThrownException() 
+	{
+		tester.setAge(-1);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetWeightTooBigByThrownException()
+	{
+		tester.setAge(350);
 	}
 
 }

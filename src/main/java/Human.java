@@ -1,45 +1,72 @@
-public class Human {
-	private String name;		//Full name
+public class Human 
+{
+	private String firstName;	//First name
+	private String surname;		//Surname
 	private int age;			//Age in Years
 	private int height; 		//Height in Centimeters
 	private int weight; 		//Weight in Pounds
 
 	public Human()
 	{
-		name=null;
+		firstName=null;
+		surname=null;
 		age=0;
 		height=0;
 		weight=0;
 	}
 
-	public Human(String name,int age,int height,int weight)
+	public Human(String firstName,String surname,int age,int height,int weight)
 	{
-		this.name=name;
+		this.firstName=firstName;
+		this.surname=surname;
 		this.age=age;
 		this.height=height;
 		this.weight=weight;
 	}
 
 	// validate first name
-	public static boolean validateFirstName(String name) 
+	public static boolean validateFirstName(String firstName) 
 	{
-		return name.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+		return firstName.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
 	}
 
 
-	public void setName(String name)
+	public void setFirstName(String firstName)
 	{
-		if (validateFirstName(name) == true) 
+		if (validateFirstName(firstName) == true) 
 		{
-			this.name = name;
+			this.firstName = firstName;
 		} else
 			throw new IllegalArgumentException("First name can only be alphabetic", null);
 	}
-
-
-	public String getName()
+	
+	public String getFirstName()
 	{
-		return name;
+		return firstName;
+	}
+	
+	public static boolean validateSurname(String surname) 
+	{
+		return surname.matches("[a-zA-z]+([ '-][a-zA-Z]+)*");
+	}
+
+	public void setSurname(String surname)
+	{
+		if (validateSurname(surname) == true) 
+		{
+			this.surname = surname;
+		} else
+			throw new IllegalArgumentException("Surname can only be alphabetic", null);
+	}
+
+	
+	
+	
+	
+	
+	public String getSurname()
+	{
+		return surname;
 	}
 
 	public void setAge(int age)
@@ -59,7 +86,7 @@ public class Human {
 
 	public void setHeight(int height)
 	{
-		if (height < 0 || age >= 210) 
+		if (height < 49 || height >= 210) 
 		{
 			throw new IllegalArgumentException("Height should be realistic");
 		} else {
@@ -74,7 +101,7 @@ public class Human {
 
 	public void setWeight(int weight)
 	{
-		if (weight < 0 || weight >= 280) 
+		if (weight < 7 || weight >= 280) 
 		{
 			throw new IllegalArgumentException("Weight should be realistic");
 		} else {
