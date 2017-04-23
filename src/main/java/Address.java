@@ -85,21 +85,6 @@ public class Address {
 		return street;
 	}
 
-	// Validate number
-	public static boolean validateNumber(String number) 
-	{
-		return number.matches("[a-zA-z]+([ '][a-zA-Z]+)*");
-	}
-
-	public void setNumber(String number)
-	{
-		if (validateCounty(number) == true) 
-		{
-			this.street = number;
-		} else
-			throw new IllegalArgumentException("number can only be alphabetic", null);
-	}
-
 	public int getNumber()
 	{
 		return number;
