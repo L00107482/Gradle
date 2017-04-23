@@ -38,11 +38,7 @@ public class HumanTester
 		tester.setFirstName("Ryán");
 		assertEquals("Ryán", tester.getFirstName());
 	}
-	
-	
-	
-	
-	
+		
 	
 	@Test
 	public void testGetSurname()

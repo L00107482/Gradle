@@ -5,6 +5,7 @@ public class Human
 	private int age;			//Age in Years
 	private int height; 		//Height in Centimeters
 	private int weight; 		//Weight in Pounds
+	private Address address;
 
 	public Human()
 	{
