@@ -72,7 +72,7 @@ public class Human
 
 	public void setAge(int age)
 	{
-		if (age < 0 || age >= 125) 
+		if (age < 0 || age > 125) 
 		{
 			throw new IllegalArgumentException("Age should be realistic");
 		} else {

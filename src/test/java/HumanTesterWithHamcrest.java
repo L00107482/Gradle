@@ -107,7 +107,7 @@ public class HumanTesterWithHamcrest
 	public void testLastNameWithNumber() 
 	{
 		thrown.expect(IllegalArgumentException.class);
-		thrown.expectMessage(startsWith("Last name can only be alphabetic with a hyphen"));
+		thrown.expectMessage(startsWith("Last name can only be alphabetic"));
 		testDummy.setSurname("Byrn3");
 	}
 	
