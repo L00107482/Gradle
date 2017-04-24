@@ -35,7 +35,7 @@ public class HumanTesterWithHamcrest
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
-	@Test
+	
 	public void testSetAgeTooSmallByThrownException() 
 	{
 		thrown.expect(IllegalArgumentException.class);
@@ -43,7 +43,7 @@ public class HumanTesterWithHamcrest
 		testDummy.setAge(-1);
 	}
 
-	@Test
+	
 	public void testSetAgeTooBigByThrownException() 
 	{
 		thrown.expect(IllegalArgumentException.class);
@@ -103,7 +103,7 @@ public class HumanTesterWithHamcrest
 		assertThat(testDummy.getSurname(), is(equalTo("Van-Damme")));
 	}
 
-	@Test
+	
 	public void testLastNameWithNumber() 
 	{
 		thrown.expect(IllegalArgumentException.class);
