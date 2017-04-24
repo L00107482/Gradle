@@ -1,4 +1,4 @@
-public class Human 
+public class Human extends Address 
 {
 	private String firstName;	//First name
 	private String surname;		//Surname
@@ -16,19 +16,21 @@ public class Human
 		weight=0;
 	}
 
-	public Human(String firstName,String surname,int age,int height,int weight)
+	public Human(String firstName,String surname,int age,int height,int weight,String county,String town, String street, int number)
 	{
+		super(county,town,street,number);
 		this.firstName=firstName;
 		this.surname=surname;
 		this.age=age;
 		this.height=height;
 		this.weight=weight;
+		
 	}
 
 	// validate first name
 	public static boolean validateFirstName(String firstName) 
 	{
-		return firstName.matches("[a-zA-zαινσϊ]+([ '-][a-zA-Z]+)*");
+		return firstName.matches("[a-zA-zαινσϊ]+([ '-.][a-zA-Z]+)*");
 	}
 
 
@@ -48,7 +50,7 @@ public class Human
 	
 	public static boolean validateSurname(String surname) 
 	{
-		return surname.matches("[a-zA-zαινσϊ]+([ '-][a-zA-Z]+)*");
+		return surname.matches("[a-zA-zαινσϊ.]+([ '-][a-zA-Z.]+)*");
 	}
 
 	public void setSurname(String surname)
@@ -60,11 +62,6 @@ public class Human
 			throw new IllegalArgumentException("Surname can only be alphabetic", null);
 	}
 
-	
-	
-	
-	
-	
 	public String getSurname()
 	{
 		return surname;

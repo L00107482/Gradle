@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 public class HumanTesterWithHamcrest 
 {
 	
-	private Human testDummy = new Human("Ryan", "Byrne", 21,170,120);
+	private Human testDummy = new Human("Ryan", "Byrne", 21,170,120,"Donegal","Letterkenny","Main Street",33);
 
 	@Test
 	public void testGetAge() 
@@ -35,14 +35,12 @@ public class HumanTesterWithHamcrest
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
-	
 	public void testSetAgeTooSmallByThrownException() 
 	{
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage(startsWith("Age must be realistic"));
 		testDummy.setAge(-1);
 	}
-
 	
 	public void testSetAgeTooBigByThrownException() 
 	{
@@ -85,9 +83,7 @@ public class HumanTesterWithHamcrest
 	{
 		testDummy.setFirstName("Jean Claude");
 		assertThat(testDummy.getFirstName(), is(equalTo("Jean Claude")));
-	}
-	
-	
+	}	
 
 	@Test
 	public void testLastName() 
@@ -103,7 +99,6 @@ public class HumanTesterWithHamcrest
 		assertThat(testDummy.getSurname(), is(equalTo("Van-Damme")));
 	}
 
-	
 	public void testLastNameWithNumber() 
 	{
 		thrown.expect(IllegalArgumentException.class);

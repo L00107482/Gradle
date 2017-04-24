@@ -3,8 +3,7 @@ import org.junit.Test;
 
 public class HumanTester 
 {
-
-	private Human tester = new Human("Ryan", "Byrne",21,170,120);
+	private Human tester = new Human("Ryan", "Byrne",21,170,120,"Donegal","Letterkenny","Main Street",33);
 
 	@Test
 	public void testGetFirstName()
@@ -16,6 +15,13 @@ public class HumanTester
 	public void testFirstNameWithNumber() 
 	{
 		tester.setFirstName("Ry4n");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testFullStopFirstName()
+	{
+		tester.setFirstName("Sammy.");
+		assertEquals("Sammy.", tester.getFirstName());
 	}
 
 	@Test
@@ -37,8 +43,7 @@ public class HumanTester
 	{
 		tester.setFirstName("Ryán");
 		assertEquals("Ryán", tester.getFirstName());
-	}
-		
+	}		
 	
 	@Test
 	public void testGetSurname()
@@ -64,6 +69,13 @@ public class HumanTester
 	{
 		tester.setSurname("O'Boyle");
 		assertEquals("O'Boyle", tester.getSurname());
+	}
+	
+	@Test
+	public void testFullStopSurname()
+	{
+		tester.setSurname("Davies Jr.");
+		assertEquals("Davies Jr.", tester.getSurname());
 	}
 	
 	@Test
@@ -175,5 +187,28 @@ public class HumanTester
 	{
 		tester.setAge(350);
 	}
-
+	
+	@Test
+	public void testGetCounty()
+	{
+		assertEquals("Donegal",tester.getCounty());
+	}
+	
+	@Test
+	public void testGetTown()
+	{
+		assertEquals("Letterkenny",tester.getTown());
+	}
+	
+	@Test
+	public void testGetStreet()
+	{
+		assertEquals("Main Street",tester.getStreet());
+	}
+	
+	@Test
+	public void testGetNumber()
+	{
+		assertEquals(33,tester.getNumber());
+	}
 }
