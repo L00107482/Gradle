@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class HumanTester 
 {
-	private Human tester = new Human("Ryan", "Byrne",21,170,120,"Donegal","Letterkenny","Main Street",33);
+	private Human tester = new Human("Ryan", "Byrne",21,170,120,"Donegal","Killybegs","Main Street",33);
 
 	@Test
 	public void testGetFirstName()
@@ -191,24 +191,52 @@ public class HumanTester
 	@Test
 	public void testGetCounty()
 	{
-		assertEquals("Donegal",tester.getCounty());
+		assertEquals("Donegal", tester.getCounty());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetCountyWithNumber()
+	{
+		tester.setCounty("Donega1");
+		assertEquals("Donega1", tester.getCounty());
 	}
 	
 	@Test
 	public void testGetTown()
 	{
-		assertEquals("Letterkenny",tester.getTown());
+		assertEquals("Killybegs", tester.getTown());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetTownWithNumber()
+	{
+		tester.setTown("Killyb3gs");
+		assertEquals("Killyb3gs", tester.getTown());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetTownWithFada()
+	{
+		tester.setTown("Killybégs");
+		assertEquals("Killybégs", tester.getTown());
 	}
 	
 	@Test
 	public void testGetStreet()
 	{
-		assertEquals("Main Street",tester.getStreet());
+		assertEquals("Main Street", tester.getStreet());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetStreetWithNumber()
+	{
+		tester.setStreet("Main Str33t");
+		assertEquals("Main Str33t", tester.getStreet());
 	}
 	
 	@Test
 	public void testGetNumber()
 	{
-		assertEquals(33,tester.getNumber());
+		assertEquals(33, tester.getNumber());
 	}
 }

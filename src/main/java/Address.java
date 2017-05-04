@@ -1,5 +1,5 @@
 
-public class Address {
+public class Address extends Eircode {
 
 	private String county;
 	private String town;
@@ -48,7 +48,7 @@ public class Address {
 	// Validate town
 	public static boolean validateTown(String town) 
 	{
-		return town.matches("[a-zA-z]+([ '][a-zA-Z]+)*");
+		return town.matches("[a-zA-záéíóú]+([ '-.][a-zA-Z]+)*");
 	}
 
 	public void setTown(String town)
@@ -71,7 +71,7 @@ public class Address {
 		return street.matches("[a-zA-z]+([ '][a-zA-Z]+)*");
 	}
 
-	public void setstreet(String street)
+	public void setStreet(String street)
 	{
 		if (validateCounty(street) == true) 
 		{
@@ -85,13 +85,18 @@ public class Address {
 		return street;
 	}
 
+	public int setNumber(int number)
+	{
+		return this.number=number;
+	}
+	
 	public int getNumber()
 	{
 		return number;
 	}
 	
-	public Eircode getEircode()
+	public String getEircode()
 	{
-		return eircode;
+		return getEircode();
 	}
 }
